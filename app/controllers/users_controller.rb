@@ -16,6 +16,7 @@ def create
   
       @user = User.new(params[:user])
       if @user.save
+        sign_in @user
         # flash[:success] = "Welcome to the sample App!"
         redirect_to @user, :flash  =>  {:success  => "Welcome to the Sample App!" }
       else
